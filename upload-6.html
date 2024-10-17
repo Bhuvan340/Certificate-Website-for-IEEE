@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FireBase</title>
+</head>
+<body style="text-align:center">
+    <h3>Enter Email</h3>
+    <input id="Email-Input" type="text">
+    <h3>Enter Name</h3>
+    <input id="Name-Input" type="text">
+    <br>
+    <br>
+    <button id="insert"">Insert</button>
+    <button id="remove">Remove</button>
+    <button id="update">Update</button>
+
+    <h3>Enter Email</h3>
+    <input id="Find-Email-Input" type="text">
+    <button id="find">Find</button>
+    <h3 id="Name-Output"></h3>
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+            apiKey: "AIzaSyC_bEqlk4d_Pdt8729K9S46lZUPVRdIOTs",
+            authDomain: "ieee-webinar-21c79.firebaseapp.com",
+            databaseURL: "https://ieee-webinar-21c79-default-rtdb.firebaseio.com",
+            projectId: "ieee-webinar-21c79",
+            storageBucket: "ieee-webinar-21c79.appspot.com",
+            messagingSenderId: "257832659478",
+            appId: "1:257832659478:web:6955313a0d918e78a62337",
+            measurementId: "G-BET80ZPJYE"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+
+        import {getDatabase, ref, get, set, child, update, remove}
+        from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
+
+        const db = getDatabase();
+
+        //Buttons
+        var InsertBTN = document.querySelector("#insert");
+        var FindBTN = document.querySelector("#find")
+
+        // function InsertData(){
+        //     set(ref(db, "IEEEwebinar1/"+document.querySelector("#Email-Input").value.replaceAll(".","dot") ),{
+        //         Name: document.querySelector("#Name-Input").value
+        //     })
+        //     .then(()=>{
+        //         alert("Data Is Inserted")
+        //     })
+        //     .catch(()=>{
+        //         alert("Some Error Happend")
+        //     });
+        // }
+        
+        function InsertData2(key, value){
+            set(ref(db, "Webinar6/"+key.replaceAll(".","dot") ),{
+                Name: value
+            })
+            .then(()=>{
+                // alert("Data Is Inserted")
+                console.log(value+ " Inserted");
+            })
+            .catch(()=>{
+                alert("Some Error Happend");
+            });
+        }
+
+        function InsertData(){
+            const data8 = {
+                'Email': 'Name',
+                'tejaswinipoojar2003@gmail.com': 'Tejaswini Poojar',
+                'shravanapatil20@gmail.com': 'Shravana Sheetal Patil',
+                'revanasiddadashavant93@gmail.com': 'Revanasidda Dashavant',
+                'rohandodamani128@gmail.com': 'Rohan Balesh Dodamani',
+                'sankeernatteli211@gnail.com': 'Sankeerna Teli',
+                'sumitcdyamannavar2002@gmail.com': 'Sumit C Dyamannavar',
+                'shreyashirahatti25@gmail.com': 'Shreya S Shirahatti',
+                'nagrajkhanapure9181@gmail.com': 'Nagraj Khanapure',
+                'adityadevraj.05@gmail.com': 'Aditya D V',
+                '02fe22bec034@ieee.org': 'Kalashri Gomannache',
+                'rameshtoli444@gmail.com': 'Ramesh Toli',
+                '02fe22bec048@klescet.ac.in': 'Vaibhavi Maruti Patil',
+                'preranabc129@gmail.com': 'Prerana B Chivatagundi',
+                'vighneshnaikee@gmail.com': 'Vighnesh Ratnakar Naik',
+                '02fe22bec026@ieee.org': 'Diya Revankar',
+                'tubakadjyoti@gmail.com': 'Jyoti Basappa Tubakad',
+                'akashtegur992@gmail.com': 'Akash Tegur',
+                'adityagoddale18@gmail.com': 'Aditya Chandrakant Goddale',
+                'deepakr8v10@gmail.com': 'Deepak Kumar Prajapati',
+                'pallavigourayya@gmail.com': 'Pallavi Kiran Gourayya',
+                'burlibasavaraj41@gmail.com': 'Basavaraj Burli',
+                '02fe21bee016@kletech.ac.in': 'Laxmi Nagappa Navalagatti',
+                'mbsoundarya345@gmail.com': 'Soundarya Muddayya Bhikshavatimath',
+                '02FE22BEC042@kletech.ac.in': 'Numa Madiwale',
+                'basaragisushmita55@gmail.com': 'Sushmeeta S Basaragi',
+                'goudar123321@gmail.com': 'Nandish S Goudar',
+                '02fe22bee008@kletech.ac.in': 'Bhoomika Patil',
+                '02fe22bee047@kletech.ac.in': 'Suvidha Sail',
+                'poojachiremath590@gmail.com': 'Pooja C Hiremath',
+                'ashwinibyakod1@gmail.com': 'Ashwini H Byakod',
+                '02fe22bee031@kletech.ac.in': 'Sayed Abusufiyan Inamdar',
+                'sakshimkadlibuddi@gmail.com': 'Sakshi M Kadlibuddi',
+                '02fe22bee007@kletech.ac.in': 'Bhagyashree B Biradar',
+                'tanvikatti4@gmail.com':'Tanvi Katti',
+                'shreyaduganikle@gmail.com': 'Shreya Dugani',
+                'ameychougule@gmail.com': 'Amey Chougule',
+            };
+            for (let [key, value] of Object.entries(data8)) {
+                InsertData2(key, value);
+            }
+            alert("Done")
+        }
+        
+        function FindData(){
+            get(child(ref(db), "Webinar6/"+document.querySelector("#Find-Email-Input").value.replaceAll(".","dot")))
+            .then((snapshot)=>{
+                if(snapshot.exists()){
+                    document.querySelector("#Name-Output").innerHTML = snapshot.val().Name;
+                }
+                else{
+                    alert("Data Not Found");
+                }
+            })
+            .catch((error)=>{
+                alert(error);
+            })
+        }
+
+        InsertBTN.addEventListener("click", InsertData);
+        FindBTN.addEventListener("click", FindData);
+
+
+    </script>
+</body>
+</html>

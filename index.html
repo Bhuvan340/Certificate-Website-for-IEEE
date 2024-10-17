@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="confence,event,conference,company,meetup,business,agency,startup,sass,responsive,modern,speaker,multpage,onepage,it,business" />
+  <meta name="author" content="Themefisher" />
+
+  <title>Quantum Communication in 6G Wireless Networks</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600&family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="plugins/themefisher-font/style.css" />
+  <link rel="stylesheet" href="plugins/animate-css/animate.css" />
+  <link rel="stylesheet" href="plugins/magnific-popup/dist/magnific-popup.css" />
+  <link rel="stylesheet" href="plugins/slick-carousel/slick/slick.css" />
+  <link rel="stylesheet" href="plugins/slick-carousel/slick/slick-theme.css" />
+  <link rel="stylesheet" href="css/style.css" />
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+
+<body id="body" onload="FindData()">
+  <!-- Floating Action Btn Start -->
+  <style>
+    /* Styles for Floating Action Button */
+    /*... (same as before) ...*/
+  </style>
+  <!-- Floating Action Btn End -->
+
+  <!-- Navigation Start -->
+  <header class="header-bar">
+    <nav class="navbar navbar-expand-lg main-nav fixed-top" style="background-color: #000000;">
+      <div class="container">
+        <a class="navbar-brand" href="https://www.linkedin.com/in/bhuvan-budavi-425408219/">
+          <img src="Bangalore-Section-Logo-white-1-01.png" style="width: 150px;" alt="meetub" class="img-fluid logo-b"/>
+        </a>
+        <a class="navbar-brand" href="https://www.linkedin.com/in/bhuvan-budavi-425408219/">
+          <img src="KleTech.png" style="width: 150px;" alt="meetub" class="img-fluid logo-b"/>
+        </a>
+      </div>
+    </nav>
+  </header>
+  <!-- Navigation End -->
+
+  <!-- Hero Section Start -->
+  <section id="home" class="section-banner align-items-center" style="background-color: white; background-image: url('BACKGROUND.webp'); padding-bottom: 80px; padding-top: 40px; margin-top: 40px; background-attachment: fixed;">
+    <div class="container">
+      <div class="#">
+        <div style="text-align:center;">
+          <div class="banner-content">
+            <h2 class="mt-3 mb-5" style="color: white;">CLAIM YOU CERTIFICATE NOW</h2>
+            <span style="color: white;"><b>Webinar on Quantum Communication in 6G Wireless Networks</b></span>
+
+            <img src="AESS.png" id="certificate" width="1920px" height="1080px" hidden>
+            <canvas width="1748px" height="1240px" id="myCanvas" style="border: 1px solid grey;" hidden></canvas>
+            <form action="#" class="sub-form mt-4 mb-3">
+              <input type="text" class="form-control" placeholder="Enter Your Registerd Email ID" id="email-input">
+              <a style="color: white;" class="btn btn-secondary btn-rounded mt-3" id="Generate">Get Certificate</a>
+            </form>
+
+            <div id="Preview12" style="display: none;">
+              <img width="100%" src="" alt="" id="CERIMG" style="">
+              <br><br>
+              <a id="Download" style="text-align: center;color: white;" rel="noopener noreferrer" class="btn btn-hero2 btn-rounded">Download</a>
+            </div>
+            <br><br>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Hero Section End -->
+
+  <!-- Footer Section Start -->
+  <section class="footer section" id="foot123">
+    <div class="container">
+      <div class="row justify-content-center" style="padding-bottom: 30px;">
+        <div class="col-lg-6 text-center">
+          <img src="IEEE-NKSS.png" style="width: 250px; padding-right: 20px;">
+          <img src="IEEE_KLE.jpg"  style="width: 150px; border-radius:50%;">
+        </div>
+      </div>
+
+      <div class="row justify-content-center"> 
+        <div class="col-lg-6 text-center">
+          <p class="text-white-50">
+            Thank you for attending the webinar on Quantum Communication in 6G Wireless Networks! We hope you found it informative and helpful.
+          </p>
+          <p class="mt-3 text-white-50">
+            We look forward to seeing you at our next event!
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-12 text-center mt-5">
+          <p class="copy border-top pt-4 text-white-50 mb-0">
+            Developed with ❤️ by <a style="color: var(--color1);" href="https://www.linkedin.com/in/bhuvan-budavi-425408219/" target="_blank" rel="noopener noreferrer">Bhuvan Budavi</a> 
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Footer Section End -->
+
+  <!-- Firebase and Certificate Script -->
+  <script type="module">
+    // Import Firebase SDKs
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-analytics.js";
+    import { getDatabase, ref, get, child } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
+  
+    const firebaseConfig = {
+      apiKey: "AIzaSyC_bEqlk4d_Pdt8729K9S46lZUPVRdIOTs",
+      authDomain: "ieee-webinar-21c79.firebaseapp.com",
+      databaseURL: "https://ieee-webinar-21c79-default-rtdb.firebaseio.com",
+      projectId: "ieee-webinar-21c79",
+      storageBucket: "ieee-webinar-21c79.appspot.com",
+      messagingSenderId: "257832659478",
+      appId: "1:257832659478:web:6955313a0d918e78a62337",
+      measurementId: "G-BET80ZPJYE"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    const db = getDatabase();
+
+    //Buttons
+    const InsertBTN = document.querySelector("#Generate");
+    const DownloadBTN = document.querySelector("#Download");
+
+    function DispCertificate(){
+      const canvas = document.getElementById("myCanvas");
+      let image = canvas.toDataURL("image/png", 1.0).replace("image/png", "image/octet-stream");
+      const pic = document.getElementById("CERIMG");
+      pic.src = image;
+    }
+
+    function FindData(){
+      let key = document.getElementById("email-input").value.toLowerCase();
+      const c = document.getElementById("myCanvas");
+      const ctx = c.getContext("2d");
+      const img = document.getElementById("certificate");
+      ctx.drawImage(img, 0, 0);
+
+      get(child(ref(db), "Webinar7/"+key.replaceAll(".","dot")))
+      .then((snapshot)=>{
+        if(snapshot.exists()){
+          const data = snapshot.val().Name;
+          ctx.font = "130px Great Vibes";
+          ctx.fillStyle = "black";
+          ctx.textAlign = "center";
+          ctx.fillText(data, 874, 730);
+
+          if(data){
+            DispCertificate();
+            document.getElementById("Preview12").style.display = "block";
+            document.getElementById("Preview12").scrollIntoView();
+          }
+        }
+        else{
+          alert("Ops Looks Like You Didnt attend workshop on Quantum Communication in 6G Wireless Networks");
+        }
+      })
+      .catch((error)=>{
+        alert(error);
+      });
+    }
+
+    function DWN(){
+      const canvas = document.getElementById("myCanvas");
+      let image = canvas.toDataURL("image/png", 1.0).replace("image/png", "image/octet-stream");
+      const link = document.createElement('a');
+      link.download = "certificate.png";
+      link.href = image;
+      link.click();
+    }
+  
+    InsertBTN.addEventListener("click", FindData);
+    DownloadBTN.addEventListener("click", DWN);
+  </script>
+
+  <!-- Main jQuery -->
+  <script src="plugins/jquery/jquery.js"></script>
+  <script src="plugins/bootstrap/js/bootstrap.min.js"></script>
+  <script src="plugins/SyoTimer/jquery.syotimer.min.js"></script>
+  <script src="../../cdnjs.cloudflare.com/ajax/libs/jquery.form/3.32/jquery.form.js"></script>
+  <script src="../../cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.11.1/jquery.validate.min.js"></script>
+  <script src="plugins/easing/waypoint.js"></script>
+  <script src="plugins/easing/easing.js"></script>
+  <script src="plugins/magnific-popup/dist/jquery.magnific-popup.js"></script>
+  <script src="plugins/google-map/gmap3.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwIQh7LGryQdDDi-A603lR8NqiF3R_ycA"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
